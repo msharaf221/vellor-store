@@ -119,6 +119,6 @@ function hideAll(){$('#overlay').hidden=true;$$('.sheet').forEach(s=>s.hidden=tr
 $('#overlay').onclick=hideAll;$$('[data-close]').forEach(b=>b.onclick=hideAll);
 addEventListener('keydown',e=>{if(e.key==='Escape'){hideAll();document.body.classList.remove('menu-open')}});
 let tt;function toast(m){const t=$('#toast');t.textContent=m;t.hidden=false;clearTimeout(tt);tt=setTimeout(()=>t.hidden=true,3200)}
-count();
+hideAll();count();
 const fv=$('#filmV');if(fv&&fv.play)fv.play().catch(()=>{});
 })();
