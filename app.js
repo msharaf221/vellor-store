@@ -22,13 +22,14 @@ mb.onclick=()=>{const o=document.body.classList.toggle('menu-open');$('#menu').s
 $$('#menu a').forEach(a=>a.onclick=()=>document.body.classList.remove('menu-open'));
 
 /* products */
-$('#track').innerHTML=P.map((p,i)=>`<button class="pc" data-id="${p.id}"><div class="im"><span class="no">${num(i+1)}</span><img src="img/${first(p)}-s.webp" alt="${E(p.name)}" loading="lazy"></div>
+const F0=P.filter(p=>p.featured).slice(0,8),FL=F0.length?F0:P.slice(0,8);
+if($('#track'))$('#track').innerHTML=FL.map((p,i)=>`<button class="pc" data-id="${p.id}"><div class="im"><span class="no">${num(i+1)}</span><img src="img/${first(p)}-s.webp" alt="${E(p.name)}" loading="lazy"></div>
  <div class="tx"><div><h3>${E(p.name)}</h3><span class="en">${E(p.en)}</span></div><span class="p">${fmt(p.price)}${cfg.demo?'<span class="tag">تجريبي</span>':''}</span></div></button>`).join('');
-$('#track').onclick=e=>{const c=e.target.closest('.pc');if(c)openProduct(c.dataset.id)};
+if($('#track'))$('#track').onclick=e=>{const c=e.target.closest('.pc');if(c)openProduct(c.dataset.id)};
 
 /* statement: words light up on scroll */
-const big=$('#big');big.innerHTML=big.textContent.trim().split(/\s+/).map(w=>`<span class="w">${w}</span>`).join(' ');
-const words=$$('#big .w');
+const big=$('#big');let words=[];if(big){big.innerHTML=big.textContent.trim().split(/\s+/).map(w=>`<span class="w">${w}</span>`).join(' ');words=$$('#big .w')}
+if($('#allCount'))$('#allCount').textContent=num(P.length);
 
 /* reveals */
 const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.12,rootMargin:'0px 0px -6% 0px'});
@@ -41,10 +42,10 @@ $$('.steps li,.trust div,.faq details').forEach((el,i)=>el.style.transitionDelay
 /* scroll engine */
 const hs=$('#hs'),track=$('#track'),hsBar=$('#hsBar'),hsNum=$('#hsNum'),top=$('#top'),heroImg=$('.hero-img'),pars=$$('[data-par]');
 let vw=innerWidth,vh=innerHeight,span=0,tick=false;
-function measure(){vw=innerWidth;vh=innerHeight;span=Math.max(0,track.offsetWidth-vw);hs.style.height=(span+vh)+'px'}
+function measure(){if(!hs)return;vw=innerWidth;vh=innerHeight;span=Math.max(0,track.offsetWidth-vw);hs.style.height=(span+vh)+'px'}
 function update(){
   tick=false;const y=scrollY;
-  top.classList.toggle('solid',y>60);
+  top.classList.toggle('solid',y>60||document.body.classList.contains('shop'));if(!hs)return;
   if(!RM&&y<vh*1.2)heroImg.style.transform=`translate3d(0,${y*.22}px,0)`;
   // statement words
   const sr=big.getBoundingClientRect();const sp=Math.min(1,Math.max(0,(vh*.85-sr.top)/(vh*.55+sr.height*.6)));
@@ -53,7 +54,7 @@ function update(){
   const hr=hs.getBoundingClientRect();const p=span?Math.min(1,Math.max(0,-hr.top/span)):0;
   track.style.transform=`translate3d(${p*span}px,0,0)`;
   hsBar.style.transform=`scaleX(${p})`;
-  hsNum.textContent=num(Math.min(P.length,Math.round(p*(P.length-1))+1));
+  hsNum.textContent=num(Math.min(FL.length,Math.round(p*(FL.length-1))+1));
   // parallax images
   if(!RM)pars.forEach(el=>{const r=el.parentElement.getBoundingClientRect();if(r.bottom<-100||r.top>vh+100)return;const k=+el.dataset.par;const c=(r.top+r.height/2-vh/2);el.style.transform=`translate3d(0,${-c*k}px,0)`});
 }
@@ -97,7 +98,8 @@ function renderCart(){
   <div class="in"><b>${E(p.name)}</b><br><small>${E(i.color)}${i.size?' · مقاس '+i.size:''}</small><br>${fmt(p.price*i.q)}</div>
   <div class="qty"><button data-a="m" data-i="${ix}">−</button><span>${i.q}</span><button data-a="p" data-i="${ix}">+</button></div></div>`}).join('');
   const t=totals();
-  $('#totals').innerHTML=`<div><span>المنتجات</span><span>${fmt(t.sub)}</span></div><div><span>الشحن${cfg.demo?' (تجريبي)':''}</span><span>${t.ship?fmt(t.ship):'مجاني'}</span></div><div class="t"><span>الإجمالي</span><span>${fmt(t.total)}</span></div>`;
+  const left=cfg.freeShippingOver-t.sub,ship=left>0?`<p class="shipbar">فاضل ${fmt(left)} ويبقى الشحن مجاني<i><b style="width:${Math.round(t.sub/cfg.freeShippingOver*100)}%"></b></i></p>`:'<p class="shipbar ok">الشحن مجاني على طلبك</p>';
+  $('#totals').innerHTML=ship+`<div><span>المنتجات</span><span>${fmt(t.sub)}</span></div><div><span>الشحن${cfg.demo?' (تجريبي)':''}</span><span>${t.ship?fmt(t.ship):'مجاني'}</span></div><div class="t"><span>الإجمالي</span><span>${fmt(t.total)}</span></div>`;
 }
 $('#cartList').onclick=e=>{const b=e.target.closest('button');if(!b)return;const i=+b.dataset.i;b.dataset.a==='p'?cart[i].q++:cart[i].q--;if(cart[i].q<=0)cart.splice(i,1);save();count();renderCart()};
 $('#openCart').onclick=()=>{renderCart();show('#cartSheet')};
@@ -119,6 +121,7 @@ function hideAll(){$('#overlay').hidden=true;$$('.sheet').forEach(s=>s.hidden=tr
 $('#overlay').onclick=hideAll;$$('[data-close]').forEach(b=>b.onclick=hideAll);
 addEventListener('keydown',e=>{if(e.key==='Escape'){hideAll();document.body.classList.remove('menu-open')}});
 let tt;function toast(m){const t=$('#toast');t.textContent=m;t.hidden=false;clearTimeout(tt);tt=setTimeout(()=>t.hidden=true,3200)}
+window.SHOP={open:openProduct,fmt,first,E,num};
 hideAll();count();
 const fv=$('#filmV');if(fv&&fv.play)fv.play().catch(()=>{});
 })();

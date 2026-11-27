@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>كل المنتجات | Vellor</title>
+<meta name="description" content="جزم ومحافظ وأحزمة من الجلد الطبيعي، مصنوعة باليد في مصر. الدفع عند الاستلام أو إنستا باي.">
+<meta name="theme-color" content="#0d0906">
+<meta property="og:title" content="Vellor"><meta property="og:image" content="img/hero.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="shop">
+<div class="grain" aria-hidden="true"></div>
+<div class="demo-bar" id="demoBar" hidden>نسخة تجريبية · المنتجات والأسعار للعرض فقط</div>
+<header class="top solid" id="top">
+  <button class="menu-btn" id="menuBtn" aria-label="القائمة"><i></i><i></i></button>
+  <a class="logo" href="index.html" aria-label="Vellor">VELLOR</a>
+  <button class="cart-btn" id="openCart" aria-label="السلة">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M5 8h14l-1.2 11H6.2L5 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg>
+    <span class="badge" id="cartCount"></span>
+  </button>
+</header>
+<nav class="menu" id="menu" aria-hidden="true">
+  <a href="index.html#collection">المجموعة</a><a href="shop.html">كل المنتجات</a><a href="index.html#craft">الصنعة</a><a href="index.html#film">الفيلم</a><a href="index.html#faq">أسئلة</a>
+  <p>Vellor · جلد طبيعي · صنع في مصر</p>
+</nav>
+<main><div class="shop-main">
+  <div class="shop-head"><p class="eyebrow">المتجر</p><h1>كل المنتجات</h1><p id="count"></p></div>
+  <div class="cats" id="cats"></div>
+  <div class="bar">
+    <input id="q" type="search" placeholder="ابحث عن موديل أو لون" aria-label="بحث">
+    <select id="sort" aria-label="ترتيب"><option value="rec">الترتيب: المقترح</option><option value="new">الأحدث</option><option value="pa">السعر: الأقل أولاً</option><option value="pd">السعر: الأعلى أولاً</option></select>
+    <button id="fBtn" type="button">تصفية</button>
+  </div>
+  <div class="shop-body">
+    <aside class="fp" id="filters" aria-label="تصفية">
+      <div class="fhead"><b>تصفية</b><button type="button" id="clear">مسح الكل</button><button type="button" data-fclose aria-label="إغلاق">إغلاق</button></div>
+      <h4>المقاس</h4><div class="chips2" id="sizeF"></div>
+      <h4>اللون</h4><div class="chips2" id="colF"></div>
+      <h4>السعر</h4><input type="range" id="price" aria-label="أقصى سعر"><span id="priceV"></span>
+      <button type="button" class="cta solid full fapply" data-fclose><span>عرض النتائج</span></button>
+    </aside>
+    <div class="grid-wrap">
+      <div class="grid" id="grid"></div>
+      <div id="none" hidden><p>مفيش منتجات بالمواصفات دي.</p><button type="button">امسح الفلاتر</button></div>
+      <div class="more"><button class="cta solid" id="more" type="button"><span>عرض المزيد</span></button><span id="resN"></span></div>
+    </div>
+  </div>
+</div></main>
+<div class="fov" data-fclose></div>
+<footer>
+  <div class="giant" aria-hidden="true">VELLOR</div>
+  <p>جلد طبيعي · صنع في مصر</p>
+  <p class="tiny" id="footDemo"></p>
+</footer>
+<a class="wa-float" id="waFloat" target="_blank" rel="noopener" aria-label="واتساب"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M4 20l1.3-4.2A8 8 0 1112 20a8 8 0 01-3.800-1z"/><path d="M9.300 8.800c.2 2.300 2.600 4.600 5 5l1.100-1.200-1.800-.9-.8.600c-.8-.4-1.500-1.100-1.900-1.900l.6-.8-.9-1.800z" fill="currentColor" stroke="none"/></svg></a>
+<div class="overlay" id="overlay" hidden></div>
+<aside class="sheet prod" id="prodSheet" hidden role="dialog" aria-modal="true">
+  <button class="x" data-close aria-label="إغلاق">×</button>
+  <div class="pimg"><img id="pImg" alt=""></div>
+  <div class="pbody">
+    <p class="eyebrow" id="pEn"></p>
+    <h3 id="pName"></h3>
+    <p class="price" id="pPrice"></p>
+    <p class="pdesc" id="pDesc"></p>
+    <div class="opt" id="colorOpt"><span>اللون</span><div class="chips" id="colorChips"></div></div>
+    <div class="opt" id="sizeOpt"><span>المقاس</span><div class="chips" id="sizeChips"></div></div>
+    <p class="err" id="pErr"></p>
+    <button class="cta solid full" id="addBtn"><span>أضف للسلة</span></button>
+  </div>
+</aside>
+<aside class="sheet cart" id="cartSheet" hidden role="dialog" aria-modal="true">
+  <button class="x" data-close aria-label="إغلاق">×</button>
+  <div class="pbody">
+    <h3>سلتك</h3>
+    <div id="cartList"></div>
+    <div class="totals" id="totals"></div>
+    <form id="orderForm" novalidate>
+      <h4>بيانات التوصيل</h4>
+      <label>الاسم<input name="name" autocomplete="name"></label>
+      <label>رقم الموبايل<input name="phone" inputmode="tel" autocomplete="tel" placeholder="01xxxxxxxxx"></label>
+      <label>المحافظة<input name="gov"></label>
+      <label>العنوان بالتفصيل<textarea name="addr" rows="2"></textarea></label>
+      <h4>طريقة الدفع</h4>
+      <label class="radio"><input type="radio" name="pay" value="cod" checked> الدفع عند الاستلام</label>
+      <label class="radio"><input type="radio" name="pay" value="instapay"> إنستا باي</label>
+      <div class="ipbox" id="ipBox" hidden></div>
+      <p class="err" id="formErr"></p>
+      <button class="cta solid full" type="submit"><span>ابعت الطلب على واتساب</span></button>
+      <p class="note">الطلب بيتبعت كرسالة واتساب جاهزة وبتأكده معانا هناك. مفيش دفع بيحصل على الموقع.</p>
+    </form>
+  </div>
+</aside>
+<div class="toast" id="toast" hidden></div>
+<script src="config.js"></script>
+<script src="products.js"></script>
+<script src="app.js"></script>
+<script src="shop.js"></script>
+</body>
+</html>
