@@ -1,6 +1,6 @@
 (function(){
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
-const P=window.PRODUCTS,C=window.CATS||[],S=window.SHOP,cfg=window.SOLENNE||window.VELLOR||{};
+const IMG=window.IMG,P=window.PRODUCTS,C=window.CATS||[],S=window.SHOP,cfg=window.SOLENNE||window.VELLOR||{};
 const PAGE=12;
 const norm=s=>String(s||'').toLowerCase().replace(/[\u064B-\u0652]/g,'').replace(/[أإآ]/g,'ا').replace(/ة/g,'ه').replace(/ى/g,'ي');
 const FAM=[['أسود',/أسود/,'#1c1713'],['بني',/كاكاو|بني|كستنائي|كونياك|تان|عسلي/,'#7a4a2b'],['بيج',/رملي|بيج|كريمي|كريم|عاجي/,'#d8c3a0'],['رمادي',/رمادي|فضي/,'#b9b6b0'],['أزرق',/سماوي|بيبي بلو|كحلي|أزرق/,'#7f9fc4'],['عنابي',/عنابي|أحمر|بوردو/,'#6e1e2e'],['زيتي',/زيتي|أخضر/,'#5b6140']];
@@ -42,7 +42,7 @@ function list(){
   if(st.sort==='new')r=[...r].sort((a,b)=>(b.badge==='جديد')-(a.badge==='جديد'));
   return r;
 }
-const card=(p,i)=>`<button class="sc" data-id="${p.id}" style="animation-delay:${(i%PAGE)*.05}s"><div class="im"><img src="img/${S.first(p)}-s.webp" alt="${S.E(p.name)}" loading="lazy">${p.badge?`<span class="bd">${S.E(p.badge)}</span>`:''}</div>
+const card=(p,i)=>`<button class="sc" data-id="${p.id}" style="animation-delay:${(i%PAGE)*.05}s"><div class="im"><img src="${IMG(S.first(p),1)}" alt="${S.E(p.name)}" loading="lazy">${p.stock===0?'<span class="bd" style="background:#b5493f;color:#fff">نفذت الكمية</span>':p.badge?`<span class="bd">${S.E(p.badge)}</span>`:''}</div>
 <div class="tx"><h3>${S.E(p.name)}</h3><span class="en">${S.E(p.en)}</span><div class="row"><span class="p">${S.fmt(p.price)}${cfg.demo?'<span class="tag">تجريبي</span>':''}</span><span class="dots">${[...new Set(Object.keys(p.img).map(fam))].map(c=>`<i style="background:${famHex(c)}"></i>`).join('')}</span></div></div></button>`;
 function render(reset){
   const r=list(),n=Math.min(st.shown,r.length),g=$('#grid');

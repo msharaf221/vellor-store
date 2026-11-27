@@ -266,3 +266,5 @@ body.f-open .fov{opacity:1;pointer-events:auto}
 @media(min-width:1240px){.grid{grid-template-columns:repeat(4,1fr)}}
 .menu-open .menu a:nth-child(5){transition-delay:.53s}
 body.menu-open.f-open .fp{display:none}
+
+.cta:disabled{opacity:.45;pointer-events:none}
