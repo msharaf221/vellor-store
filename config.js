@@ -1,10 +1,8 @@
-// Vellor store settings. Edit here only.
+// Vellor settings. Edit here only.
 window.VELLOR = {
-  // WhatsApp number in international format without +, e.g. "2010xxxxxxxx". Empty = WhatsApp opens and asks who to send to.
-  whatsapp: "",
-  // InstaPay address. PLACEHOLDER until the real one is set.
-  instapay: "",
-  shipping: 60,          // placeholder shipping fee (EGP)
+  whatsapp: "",          // international format, no +. Empty = WhatsApp asks who to send to.
+  instapay: "",          // InstaPay address. Empty = shown as "not set yet".
+  shipping: 60,          // placeholder (EGP)
   freeShippingOver: 2000,// placeholder
-  demo: true             // shows the "demo" banner and labels. Set false when real products/prices are in.
+  demo: true             // demo banner + "تجريبي" tags. Set false once real prices are in.
 };
