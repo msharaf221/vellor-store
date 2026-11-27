@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vellor | جزم ومحافظ وأحزمة جلد طبيعي</title>
+<meta name="description" content="جزم ومحافظ وأحزمة جلد طبيعي مصنوعة في مصر. الدفع عند الاستلام أو إنستا باي.">
+<meta name="theme-color" content="#1b130e">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="demo-bar" id="demoBar" hidden>نسخة تجريبية: المنتجات والأسعار وهمية للعرض فقط</div>
+<header class="top">
+  <a class="logo" href="#top" aria-label="Vellor">Vellor</a>
+  <button class="cart-btn" id="openCart" aria-label="السلة">
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 8h14l-1.2 11H6.2L5 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg>
+    <span class="badge" id="cartCount">0</span>
+  </button>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <video class="hero-vid" autoplay muted loop playsinline preload="auto" poster="media/poster.jpg" aria-hidden="true"><source src="media/leather-loop.mp4" type="video/mp4"></video>
+    <div class="shine"></div>
+    <svg class="stitch" viewBox="0 0 300 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 20 C60 2 120 38 180 20 S270 4 300 20"/></svg>
+    <div class="hero-in">
+      <p class="eyebrow rv">صناعة مصرية · جلد طبيعي</p>
+      <h1 class="rv d1">جلد حقيقي.<br>صنعة بتتحس.</h1>
+      <p class="sub rv d2">جزم ومحافظ وأحزمة من ورشة بتشتغل في الجلد من سنين. من غير وسطاء، ومن غير بريستيج مزيف.</p>
+      <a class="btn rv d3" href="#shop">شوف المنتجات</a>
+    </div>
+  </section>
+
+  <section class="trust">
+    <div><b>جلد طبيعي</b><span>مش صناعي</span></div>
+    <div><b>الدفع عند الاستلام</b><span>أو إنستا باي</span></div>
+    <div><b>توصيل لكل المحافظات</b><span>٢ إلى ٥ أيام</span></div>
+  </section>
+
+
+  <div class="marquee" aria-hidden="true"><div class="mq"><span>جلد طبيعي</span><i>◆</i><span>صنع في مصر</span><i>◆</i><span>خياطة يدوية</span><i>◆</i><span>الدفع عند الاستلام</span><i>◆</i><span>جلد طبيعي</span><i>◆</i><span>صنع في مصر</span><i>◆</i><span>خياطة يدوية</span><i>◆</i><span>الدفع عند الاستلام</span><i>◆</i></div></div>
+  <section class="shop" id="shop">
+    <h2 class="rv">المنتجات</h2>
+    <div class="tabs" id="tabs">
+      <button class="on" data-cat="all">الكل</button>
+      <button data-cat="shoes">جزم</button>
+      <button data-cat="wallets">محافظ</button>
+      <button data-cat="belts">أحزمة</button>
+    </div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+
+  <section class="process">
+    <h2 class="rv">من الجلد للمنتج</h2>
+    <p class="lead rv">أربع خطوات، وكل خطوة بإيد صنايعي <small class="ph">(نص توضيحي، يتعدل بعد زيارة الورشة)</small></p>
+    <div class="steps">
+      <div class="step rv"><svg viewBox="0 0 60 60"><path class="dr" d="M8 44c8-24 36-30 44-30-2 8-10 36-44 30z"/></svg><b>١. اختيار الجلد</b><span>نختار الجلد بإيدينا ونفحصه</span></div>
+      <div class="step rv d1"><svg viewBox="0 0 60 60"><path class="dr" d="M10 50L50 10M10 10l16 16M34 34l16 16"/></svg><b>٢. القص</b><span>قص دقيق على الباترون</span></div>
+      <div class="step rv d2"><svg viewBox="0 0 60 60"><path class="dr" d="M6 30h48"/><path class="dr st" d="M6 30h48" /></svg><b>٣. الخياطة</b><span>خياطة مضاعفة في أماكن الشد</span></div>
+      <div class="step rv d3"><svg viewBox="0 0 60 60"><circle class="dr" cx="30" cy="30" r="18"/><path class="dr" d="M20 31l7 7 14-15"/></svg><b>٤. الفحص</b><span>كل قطعة بتتفحص قبل الشحن</span></div>
+    </div>
+  </section>
+
+  <section class="vidband">
+    <video autoplay muted loop playsinline preload="metadata" poster="media/poster.jpg"><source src="media/leather-loop.mp4" type="video/mp4"></video>
+    <div class="vb-in rv"><p class="eyebrow">الفرق في التفاصيل</p><h2>الجلد بيتحسن مع الوقت</h2><p>القطعة الحقيقية بتاخد شكل استخدامك، ولونها بيتعمق. ده اللي مبيحصلش في الصناعي.</p></div>
+  </section>
+  <section class="story">
+    <h2 class="rv">ليه Vellor</h2>
+    <p>بنختار الجلد بإيدينا، ونقصه ونخيطه في ورشتنا. القطعة اللي توصلك هي نفس القطعة اللي شفتها في الصورة، من غير فلاتر.</p>
+    <ul>
+      <li>جلد طبيعي كامل، مش مجرد "سطح جلد"</li>
+      <li>خياطة مضاعفة في الأماكن اللي بتتجهد</li>
+      <li>تبديل المقاس خلال ٧ أيام <small class="ph">(سياسة مبدئية)</small></li>
+    </ul>
+  </section>
+
+  <section class="faq">
+    <h2>أسئلة سريعة</h2>
+    <details><summary>أعرف مقاسي منين؟</summary><p>اختار مقاسك المعتاد في الجزم. لو بين مقاسين، خد الأكبر. ولو محتار ابعتلنا على واتساب.</p></details>
+    <details><summary>الدفع إزاي؟</summary><p>عند الاستلام كاش، أو إنستا باي وتبعتلنا صورة التحويل على واتساب.</p></details>
+    <details><summary>التوصيل بياخد كام يوم؟</summary><p>غالباً ٢ إلى ٥ أيام حسب المحافظة <small class="ph">(مبدئي)</small>.</p></details>
+  </section>
+</main>
+
+<footer>
+  <div class="logo">Vellor</div>
+  <p>جلد طبيعي · صنع في مصر</p>
+  <p class="tiny" id="footDemo"></p>
+</footer>
+
+<a class="wa-float" id="waFloat" target="_blank" rel="noopener" aria-label="واتساب">
+  <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm5.2 14.2c-.2.6-1.3 1.2-1.800 1.2-.5.1-1 .2-3.300-.7-2.800-1.100-4.600-4-4.700-4.200-.1-.2-1.100-1.500-1.100-2.800s.7-2 1-2.300c.2-.3.500-.3.700-.3h.5c.2 0 .4 0 .6.500l.9 2.200c.1.2.1.400 0 .5l-.4.600-.4.400c-.1.2-.3.300-.1.600.2.300.8 1.3 1.700 2.100 1.2 1 2.100 1.3 2.400 1.500.3.100.4.100.6-.1l.8-1c.2-.3.4-.2.600-.1l2 1c.3.100.5.200.5.300.1.2.1.800-.1 1.400z"/></svg>
+</a>
+
+<!-- product sheet -->
+<div class="overlay" id="overlay" hidden></div>
+<aside class="sheet" id="prodSheet" hidden aria-modal="true" role="dialog">
+  <button class="x" data-close aria-label="إغلاق">×</button>
+  <div class="pimg" id="pImg"></div>
+  <div class="pbody">
+    <h3 id="pName"></h3>
+    <p class="price" id="pPrice"></p>
+    <p id="pDesc" class="pdesc"></p>
+    <div class="opt" id="colorOpt"><span>اللون</span><div class="chips" id="colorChips"></div></div>
+    <div class="opt" id="sizeOpt"><span>المقاس</span><div class="chips" id="sizeChips"></div></div>
+    <p class="err" id="pErr"></p>
+    <button class="btn full" id="addBtn">أضف للسلة</button>
+  </div>
+</aside>
+
+<!-- cart / checkout -->
+<aside class="sheet" id="cartSheet" hidden aria-modal="true" role="dialog">
+  <button class="x" data-close aria-label="إغلاق">×</button>
+  <div class="pbody">
+    <h3>سلتك</h3>
+    <div id="cartList"></div>
+    <div class="totals" id="totals"></div>
+    <form id="orderForm" novalidate>
+      <h4>بيانات التوصيل</h4>
+      <label>الاسم<input name="name" autocomplete="name" required></label>
+      <label>رقم الموبايل<input name="phone" inputmode="tel" autocomplete="tel" placeholder="01xxxxxxxxx" required></label>
+      <label>المحافظة<input name="gov" required></label>
+      <label>العنوان بالتفصيل<textarea name="addr" rows="2" required></textarea></label>
+      <h4>طريقة الدفع</h4>
+      <label class="radio"><input type="radio" name="pay" value="cod" checked> الدفع عند الاستلام</label>
+      <label class="radio"><input type="radio" name="pay" value="instapay"> إنستا باي</label>
+      <div class="ipbox" id="ipBox" hidden></div>
+      <p class="err" id="formErr"></p>
+      <button class="btn full" type="submit">ابعت الطلب على واتساب</button>
+      <p class="note">الطلب بيتبعت كرسالة واتساب جاهزة وبتأكده معانا هناك. مفيش دفع بيحصل على الموقع.</p>
+    </form>
+  </div>
+</aside>
+<div class="toast" id="toast" hidden></div>
+<script src="config.js"></script>
+<script src="products.js"></script>
+<script src="art.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
